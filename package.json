@@ -1,6 +1,6 @@
 {
-  "name": "react-file-viewer",
-  "version": "1.2.1",
+  "name": "react-file-xyj",
+  "version": "1.2.2",
   "description": "Extendable file viewer for web",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -12,26 +12,16 @@
     "dev": "webpack -d --watch",
     "build": "webpack -p --progress",
     "start": "node ./scripts/start.js",
-    "lint": "node_modules/.bin/eslint ./src/**/*.jsx",
-    "test": "node_modules/.bin/jest --env=jsdom --watch",
-    "jest": "node_modules/.bin/jest --env=jsdom",
+    "lint": "eslint ./src/**/*.jsx",
+    "test": "jest --env=jsdom --watch",
+    "jest": "jest --env=jsdom",
     "tag-and-publish": "node ./scripts/publish.js"
   },
   "author": "PlanGrid <opensource@plangrid.com>",
   "contributors": [
-    {
-      "name": "Alexei Schiopu",
-      "email": "alexxschiopu@gmail.com",
-      "url": "http://schiopu.me"
-    },
-    {
-      "name": "Aaron Norby",
-      "email": "aaron.norby@gmail.com"
-    },
-    {
-      "name": "Viktoriya Savkina",
-      "email": "viktoriya.savkina@gmail.com"
-    }
+    "Alexei Schiopu <alexxschiopu@gmail.com> (http://schiopu.me)",
+    "Aaron Norby <aaron.norby@gmail.com>",
+    "Viktoriya Savkina <viktoriya.savkina@gmail.com>"
   ],
   "license": "MIT",
   "bugs": {
@@ -120,5 +110,8 @@
         "webpack": "webpack.config.js"
       }
     }
+  },
+  "directories": {
+    "test": "tests"
   }
 }
