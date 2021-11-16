@@ -19,10 +19,10 @@ class XlxsViewer extends Component {
       arr.push(String.fromCharCode(dataArr[i]));
     }
 
-    const workbook = XLSX.read(arr.join(''), { type: 'binary' });
+    const workbook = XLSX.read(arr.join(''), { type: 'binary', cellStyles: true, cellDates: true, cellHTML: true });
     const names = Object.keys(workbook.Sheets);
     const sheets = names.map(name => (
-      XLSX.utils.sheet_to_csv(workbook.Sheets[name])
+      XLSX.utils.sheet_to_html(workbook.Sheets[name], { blankRows: false, defval: '' })
     ));
 
     return { sheets, names, curSheetIndex: 0 };
@@ -59,7 +59,7 @@ class XlxsViewer extends Component {
     return (
       <div className="spreadsheet-viewer">
         {this.renderSheetNames(names)}
-        {this.renderSheetData(sheets[curSheetIndex || 0])}
+        <div style={{ background: 'white' }} dangerouslySetInnerHTML={{ __html: sheets[curSheetIndex || 0] }} />
       </div>
     );
   }
